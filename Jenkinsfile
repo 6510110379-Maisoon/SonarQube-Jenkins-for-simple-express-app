@@ -1,13 +1,10 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs "NodeJS" 
+ tools {
+        nodejs 'NodeJS'  // <-- Use the exact name from Global Tool Configuration
     }
 
-    environment {
-        SONARQUBE = credentials('sonar-token') // ชื่อ Credential ของ Jenkins
-    }
 
     stages {
         stage('Checkout') {
@@ -32,7 +29,7 @@ pipeline {
 
         stage('Quality Gate') {
             steps {
-                timeout(time: 1, unit: 'MINUTES') {
+                timeout(time: 5, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
             }
