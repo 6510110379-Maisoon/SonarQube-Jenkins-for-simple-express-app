@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/<username>/<repo>.git'
+                git branch: 'main', url: 'https://github.com/6510110379-Maisoon/SonarQube-Jenkins-for-simple-express-app.git'
             }
         }
 
